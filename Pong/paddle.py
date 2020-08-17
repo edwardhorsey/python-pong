@@ -12,7 +12,5 @@ class Paddle:
 
     def move(self, direction):
         y = self.paddle.ycor()
-        print(direction)
         new_y = y + 20 if direction else y - 20
-        print(new_y)
         self.paddle.sety(new_y)
