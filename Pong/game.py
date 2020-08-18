@@ -1,7 +1,7 @@
 import turtle
 import winsound
 
-class Game:
+class Game():
     def __init__(self):
         self.window = turtle.Screen()
         self.window.title("Pong Python by @edwardhorsey")

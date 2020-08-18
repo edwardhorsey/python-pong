@@ -27,19 +27,19 @@ while True:
     game.window.update()
 
     # Move the ball
-    ball.ball.setx(ball.ball.xcor() + ball.ball.dx)
-    ball.ball.sety(ball.ball.ycor() + ball.ball.dy)
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
 
      # Border checking
-    if ball.ball.ycor() > 290 or ball.ball.ycor() < -290:
-        new_coord = ball.ball.ycor()
-        ball.ball.sety(new_coord)
+    if ball.ycor() > 290 or ball.ycor() < -290:
+        new_coord = ball.ycor()
+        ball.sety(new_coord)
         ball.flip_direction('y')
         game.play_sound("bounce")
 
-    if ball.ball.xcor() > 390 or ball.ball.xcor() < -390:
-        point = ball.ball.xcor()
-        ball.ball.goto(0, 0)
+    if ball.xcor() > 390 or ball.xcor() < -390:
+        point = ball.xcor()
+        ball.goto(0, 0)
         ball.flip_direction('x')
         if point > 0:
             game.score_a += 1
@@ -49,14 +49,14 @@ while True:
         game.update_score(game.score_a, game.score_b)
         game.play_sound("out")
 
-    # Paddle and ball.ball collisions
-    if (ball.ball.xcor() > 340 and ball.ball.xcor() < 350) and (ball.ball.ycor() < paddle_b.paddle.ycor() + 40 and ball.ball.ycor() > paddle_b.paddle.ycor() - 40):
-        ball.ball.setx(340)
+    # Paddle and ball collisions
+    if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() - 40):
+        ball.setx(340)
         ball.flip_direction('x')
         game.play_sound("bounce")
 
 
-    if (ball.ball.xcor() < -340 and ball.ball.xcor() > -350) and (ball.ball.ycor() < paddle_a.paddle.ycor() + 40 and ball.ball.ycor() > paddle_a.paddle.ycor() - 40):
-        ball.ball.setx(-340)
+    if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() - 40):
+        ball.setx(-340)
         ball.flip_direction('x')
         game.play_sound("bounce")
